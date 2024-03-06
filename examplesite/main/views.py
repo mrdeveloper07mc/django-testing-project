@@ -5,3 +5,7 @@ from django.views.generic.base import TemplateView
 # TemplateView - oddiy htmlni response sifatida qaytarish
 class HomePageView(TemplateView):
     template_name = "index.html"
+    
+class CantactPageView(TemplateView):
+    template_name = "contact.html"
+    
