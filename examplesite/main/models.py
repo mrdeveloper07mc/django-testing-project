@@ -1,9 +1,9 @@
 from django.db import models
 
 # Create your models here.
-class Leaguage(models.Model):
+class Leaguage(models.Model): 
     name = models.CharField("Liga yoki Chempionat nomi",max_length=250)
-    logo = models.ImageField(upload_to="/leaguage/logos/")
+    logo = models.ImageField(upload_to="leaguage/logos/")
     country = models.CharField("Davlat", max_length=100)
     
     def __str__(self):
@@ -11,9 +11,9 @@ class Leaguage(models.Model):
 
 class Club(models.Model):
     name = models.CharField("Klub nomi",max_length=250)
-    logo = models.ImageField(upload_to="/club/logos/")
+    logo = models.ImageField(upload_to="club/logos/")
     country = models.CharField("Davlat", max_length=100)
-    coach = models.CharField("Trener", max_lenth=100)
+    coach = models.CharField("Trener", max_length=100)
     leaguage = models.ForeignKey(Leaguage,on_delete=models.PROTECT)
     
     def __str__(self):
@@ -29,7 +29,7 @@ POS = (
 
 class Player(models.Model):
     name = models.CharField("Ism-Sharif",max_length=250)
-    image = models.ImageField(upload_to="/players/images/")
+    image = models.ImageField(upload_to="players/images/")
     date_of_birth = models.DateField("Tugilgan sanasi")
     country = models.CharField("Davlat", max_length=100)
     club = models.ForeignKey(Club,on_delete=models.PROTECT)
