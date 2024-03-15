@@ -5,7 +5,8 @@ from . import views
 app_name = "main"
 
 urlpatterns = [
-    path('',views.HomePageView.as_view(),name="home" )
+    path('',views.HomePageView.as_view(),name="home" ),
+    path('leguage/<pk>', views.LeaguageDetailView.as_view(), name='leaguage_detail')
 ]
 
 

@@ -15,21 +15,11 @@
   <body>
     <main class="container">
       <section class="main-data">
-        <div class="container">
-          <h3>Leaguages</h3>
-          <table border="1">
-            {% for league in object_list %}
-            <tr>
-              <td>
-                <a href="{% url 'main:leaguage_detail' league.id %}">
-                  <img src="{{league.logo.url}}" width="100" alt="">
-                  {{league.name}}
-                </a>
-              </td>
-            </tr>
-            {% endfor %}
-          </table>
-          <table border="1">
+        <h4>
+            <img src="{{object.logo.url}}" width="100" alt="">
+            {{object.name}}
+        </h4>
+        <table border="1">
             {% for club in clubs %}
             <tr>
               <td>
@@ -41,19 +31,7 @@
             </tr>
             {% endfor %}
           </table>
-          <table border="1">
-            {% for player in players %}
-            <tr>
-              <td>
-                <a href="">
-                  <img src="{{player.image.url}}" width="100" alt="">
-                  {{player.name}}
-                </a>
-              </td>
-            </tr>
-            {% endfor %}
-          </table>
-        </div>
+
       </section>
     </main>
   </body>
