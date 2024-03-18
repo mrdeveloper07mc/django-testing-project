@@ -10,7 +10,7 @@
     href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
   /> -->
   <link rel="stylesheet" href="{% static 'css/pico.min.css' %}">
-    <title>Hello world!</title>
+    <title>Club</title>
   </head>
   <body>
     <main class="container">
@@ -20,12 +20,12 @@
             {{object.name}}
         </h4>
         <table border="1">
-            {% for club in clubs %}
+            {% for player in players %}
             <tr>
               <td>
-                <a href="{% url 'main:club_detail' club.id %}">
-                  <img src="{{club.logo.url}}" width="100" alt="">
-                  {{club.name}}
+                <a href="{% url 'main:player_detail' player.id %}">
+                  <img src="{{player.image.url}}" width="100" alt="">
+                  {{player.name}}
                 </a>
               </td>
             </tr>

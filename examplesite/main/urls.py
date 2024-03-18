@@ -6,7 +6,10 @@ app_name = "main"
 
 urlpatterns = [
     path('',views.HomePageView.as_view(),name="home" ),
-    path('leguage/<pk>', views.LeaguageDetailView.as_view(), name='leaguage_detail')
+    path('leguage/<pk>', views.LeaguageDetailView.as_view(), name='leaguage_detail'),
+    
+    path("club/<pk>", views.ClubDetailView.as_view(), name='club_detail'),
+    path("player/<pk>", views.PlayerDetailView.as_view(), name='player_detail')
 ]
 
 

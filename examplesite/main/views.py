@@ -33,7 +33,26 @@ class LeaguageDetailView(DetailView):
 
         return context
   
+class ClubDetailView(DetailView):
+    model = Club
+    template_name = "club.html"
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # self.object - DetailView orqal modeldan olinayotgan obyekt
+        context["players"] = Player.objects.filter(club=self.object)
+
+        return context
+
+
+class PlayerDetailView(DetailView):
+    model = Player
+    template_name = 'player.html'
+    
+    
+
+
+
 class CantactPageView(TemplateView):
     template_name = "contact.html"
     
