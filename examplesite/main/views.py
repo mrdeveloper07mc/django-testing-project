@@ -1,6 +1,6 @@
 from typing import Any
 from django.db.models.query import QuerySet
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponse
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView ,DetailView
 from .models import Club,Leaguage,Player
@@ -56,3 +56,24 @@ class PlayerDetailView(DetailView):
 class CantactPageView(TemplateView):
     template_name = "contact.html"
     
+    
+
+def filter_by_position(request):
+    if request.method  == "POST":
+        pos = request.POST.get("position")
+        players = Player.objects.filter(position=pos)
+        data = {
+            "players":players
+        }
+    return render(request, 'result.html', context=data)
+
+
+def filter_by_age(request):
+    if request.method  == "POST":
+        min_age_range = request.POST.get("min_age")
+        max_age_range = request.POST.get("max_age")
+        players = Player.objects.filter(date_of_birth__range=[min_age_range,max_age_range])
+        data = {
+            "players":players
+        }
+    return render(request, 'result.html', context=data)

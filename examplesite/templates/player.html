@@ -23,7 +23,21 @@
         <h5><strong>Tug'ilgan : </strong>{{object.date_of_birth}}</h5>
         <h5><strong>Yoshi : </strong>{{object.get_age}}</h5>
         <h5><strong>Transfer narxi : </strong>{{object.transfer_summa}}</h5>
-        <h5><strong>Pozitsiyasi : </strong>{{object.position}}</h5>
+        <h5><strong>Pozitsiyasi : </strong>
+          {% if object.position == 'gk' %}
+          Darvozabon
+          {% elif object.position == 'df' %}
+          Himoyachi
+          {% elif object.position == 'md' %}
+          Yarim himoyachi
+          {% elif object.position == 'fw' %}
+          Hujumkor himoyachi
+          {% elif object.position == 'st' %}
+          Hujumchi
+          {% endif %}
+          
+          <span></span>
+        </h5>
         <h5><strong>Bo'yi : </strong>{{object.height}}</h5>
         <h5><strong>Vazni : </strong>{{object.weight}}</h5>
 

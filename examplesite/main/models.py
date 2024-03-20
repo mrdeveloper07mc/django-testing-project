@@ -34,7 +34,7 @@ class Player(models.Model):
     date_of_birth = models.DateField("Tugilgan sanasi")
     country = models.CharField("Davlat", max_length=100)
     club = models.ForeignKey(Club,on_delete=models.PROTECT)
-    postion = models.CharField(max_length=100,choices=POS)
+    position = models.CharField(max_length=100,choices=POS)
     transfer_summa = models.PositiveIntegerField(default=0)
     height = models.PositiveSmallIntegerField(default=0)
     weight = models.PositiveSmallIntegerField(default=0)
