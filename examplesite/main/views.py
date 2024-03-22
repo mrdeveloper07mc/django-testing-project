@@ -18,7 +18,50 @@ class HomePageView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["clubs"] = Club.objects.all()
-        context["players"] = Player.objects.all()
+        context["players"] = Player.objects.all() # barcha objectlarni olish
+        
+        # first_player = Player.objects.get(id=1) # faqat 1 ta object
+        # print(first_player)
+        # first_player = Player.objects.get(id=1) # faqat 1 ta object
+        # print(first_player)
+        # get_or_cretae_player = Player.objects.get_or_create() # 1 ta object olish yoki hosil qilish
+        # __exact - aniq yozilgan matn boyicha filter
+        # __iexact - aniq yozilgan matn boyicha filter katta yoki kichkina harf farqi yoq
+        # __contains - berilgan matn maydonda mavjud yoki yoqligiga tekshirish
+        # __icontains - berilgan matn maydonda mavjud yoki yoqligiga tekshirish katta yoki kichkina harf farqi yoq
+        # __gt - katta
+        # __gte - katta yoki teng 
+        # __lt - kichik 
+        # __lte - kichik yoki teng
+        # __stratswith - berilgan matn bilan boshlansa 
+        # __istratswith - berilgan matn bilan boshlansa katta yoki kichkina harf farqi yoq
+        # __endswith - berilgan matn bilan tugasa 
+        # __iendswith - berilgan matn bilan tugasa katta yoki kichkina harf farqi yoq
+        # __range - ma'lum bir diapazondagilarni filterlash
+        # filtering_players = Player.objects.filter(height__range=(150,180))
+        # for p in filtering_players:
+        #     print(p.name)
+        #     print(p.height)
+        # import datetime
+        # date = datetime.date.today()
+        # this_week = date - datetime.timedelta(date.weekday())
+        # players_of_this_week = Player.objects.filter(created_at__in=this_week)
+        # print(players_of_this_week)
+        # __in - berilgan qiymatlarga mos objectlarni filterlash
+        # players_of_same_country = Player.objects.filter(country__in=["Angliya","Braziliya"])
+        # print(players_of_same_country)
+        
+        # players_all_not_english = Player.objects.all().exclude(country="Angliya")
+        # print(players_all_not_english)
+        altay = Player.objects.get(name="Altay Bayındır")
+        # update 
+        # altay.name = "Altay Bayındırjon"
+        # altay.save()
+        # delete 
+        # altay.delete() 
+        # new_club = Club.objects.create(name="Atletik" .... )
+        
+        # CRUD - Create , Retrive, Update , Delete 
         return context
     
 
