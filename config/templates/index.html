@@ -7,13 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="{% static 'css/milligram.css' %}">
-    
+
     <title>Home Page</title>
 </head>
 
 <body>
     <main class="container">
-        <h3>Hello World</h3>
+        <h3>Hello - 
+            {% if request.user.first_name %} 
+                {{request.user.first_name}} 
+            {% else %} 
+                {{request.user.username}}
+            {% endif %}
+        </h3>
     </main>
 </body>
 
