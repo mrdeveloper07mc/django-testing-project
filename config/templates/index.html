@@ -12,7 +12,16 @@
 </head>
 
 <body>
-    <main class="container">
+    <header>
+        <nav class="container">
+            <ul style="display: flex; gap:25px; list-style:none;" >
+                <li><a href="{% url 'users:login' %}" class="link">Login</a></li>
+                <li><a href="{% url 'users:logout' %}" class="link">Logout</a></li>
+                <li><a href="{% url 'users:register' %}" class="link">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+        <main class="container">
         <h3>Hello - 
             {% if request.user.first_name %} 
                 {{request.user.first_name}} 
