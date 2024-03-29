@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+from .password import PASSWORD
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,10 +24,11 @@ SECRET_KEY = 'django-insecure-v-=n%#nm_i^o7fe&sqjmh+a1gh0!-3xta9*nmz)&33#w&#ka$6
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+NGROK_HOST = "ebb9-188-113-216-125.ngrok-free.app"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [NGROK_HOST]
 
-
+CSRF_TRUSTED_ORIGINS = ["https://"+NGROK_HOST]
 # Application definition
 
 INSTALLED_APPS = [
@@ -100,7 +101,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -117,6 +117,13 @@ LOGIN_URL = "/auth/login/"
 LOGIN_REDIRECT_URL = "/"
 
 LOGOUT_REDIRECT_URL = '/'
+
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = "your email@yandex.ru"
+EMAIL_HOST_PASSWORD = PASSWORD
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
 
 
 # Static files (CSS, JavaScript, Images)
