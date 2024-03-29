@@ -124,7 +124,8 @@ EMAIL_HOST_USER = "your email@yandex.ru"
 EMAIL_HOST_PASSWORD = PASSWORD
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
-
+SERVER_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
