@@ -15,10 +15,13 @@
     <header>
         <nav class="container">
             <ul style="display: flex; gap:25px; list-style:none;" >
-                <li><a href="{% url 'users:login' %}" class="link">Login</a></li>
+                {% if request.user.is_authenticated %}
                 <li><a href="{% url 'users:logout' %}" class="link">Logout</a></li>
-                <li><a href="{% url 'users:register' %}" class="link">Register</a></li>
                 <li><a href="{% url 'users:password_change' %}" class="link">Password change</a></li>
+                {% else %}
+                <li><a href="{% url 'users:login' %}" class="link">Login</a></li>
+                <li><a href="{% url 'users:register' %}" class="link">Register</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>

@@ -1,1 +1,1 @@
-PASSWORD = ""
+PASSWORD = "Ar95Yandex"

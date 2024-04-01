@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-v-=n%#nm_i^o7fe&sqjmh+a1gh0!-3xta9*nmz)&33#w&#ka$6
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-NGROK_HOST = "ebb9-188-113-216-125.ngrok-free.app"
+NGROK_HOST = "4082-95-214-210-58.ngrok-free.app"
 
 ALLOWED_HOSTS = [NGROK_HOST]
 
@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog'
+    'blog',
+    'users',
+    'django_countries'
 ]
 
 MIDDLEWARE = [
@@ -113,15 +115,15 @@ USE_I18N = True
 USE_TZ = True
 
 
-LOGIN_URL = "/auth/login/"
+LOGIN_URL = "/users/login/"
 LOGIN_REDIRECT_URL = "/"
 
 LOGOUT_REDIRECT_URL = '/'
 
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = "your email@yandex.ru"
-EMAIL_HOST_PASSWORD = PASSWORD
+EMAIL_HOST_USER = "abdurakhmonrashidov@yandex.ru"
+EMAIL_HOST_PASSWORD = "tywgvpwerzittzvl"
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 SERVER_EMAIL = EMAIL_HOST_USER
