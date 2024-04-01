@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
+from django.views.generic import DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CustomUserRegisterForm
 from .models import Profile
 # Create your views here.
@@ -18,3 +20,7 @@ def register(request):
             print("Error")
             return render(request, "auth/register.html")
     return render(request, "auth/register.html", context={"form":form})
+
+class ProfileDetailView(LoginRequiredMixin,DetailView):
+    model = Profile
+    template_name = 'auth/profile.html'

@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="{% static 'css/milligram.css' %}">
 
-    <title>Home Page</title>
+    <title>Profile</title>
 </head>
 
 <body>
@@ -26,13 +26,19 @@
         </nav>
     </header>
         <main class="container">
-        <h3>Hello - 
+        <h3>Profile - 
             {% if request.user.first_name %} 
                 <a href="{% url 'users:profile' request.user.profile.id %}">{{request.user.first_name}} </a>
             {% else %} 
             <a href="{% url 'users:profile' request.user.profile.id %}">{{request.user.username}}</a>
             {% endif %}
         </h3>
+        <ul>
+            <li><img src="{{user.profile.image.url}}" alt=""></li>
+            <li><p>{{user.profile.bio}}</p></li>
+            <li><p>{{user.profile.country.name}}</p></li>
+            <li><p>{{user.profile.date_of_birth}}</p></li>
+        </ul>
     </main>
 </body>
 
