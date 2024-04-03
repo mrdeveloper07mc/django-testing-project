@@ -27,10 +27,12 @@
     </header>
         <main class="container">
         <h3>Hello - 
-            {% if request.user.first_name %} 
-                <a href="{% url 'users:profile' request.user.profile.id %}">{{request.user.first_name}} </a>
-            {% else %} 
-            <a href="{% url 'users:profile' request.user.profile.id %}">{{request.user.username}}</a>
+            {% if request.user.is_authenticated %}
+                {% if request.user.first_name %} 
+                    <a href="{% url 'users:profile' request.user.profile.id %}">{{request.user.first_name}} </a>
+                {% else %} 
+                <a href="{% url 'users:profile' request.user.profile.id %}">{{request.user.username}}</a>
+                {% endif %}
             {% endif %}
         </h3>
     </main>

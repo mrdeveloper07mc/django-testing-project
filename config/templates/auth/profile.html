@@ -18,6 +18,7 @@
                 {% if request.user.is_authenticated %}
                 <li><a href="{% url 'users:logout' %}" class="link">Logout</a></li>
                 <li><a href="{% url 'users:password_change' %}" class="link">Password change</a></li>
+                <li><a href="{% url 'users:profile_update' request.user.profile.id  %}">Edit</a></li>
                 {% else %}
                 <li><a href="{% url 'users:login' %}" class="link">Login</a></li>
                 <li><a href="{% url 'users:register' %}" class="link">Register</a></li>
@@ -32,12 +33,17 @@
             {% else %} 
             <a href="{% url 'users:profile' request.user.profile.id %}">{{request.user.username}}</a>
             {% endif %}
+            
         </h3>
         <ul>
-            <li><img src="{{user.profile.image.url}}" alt=""></li>
-            <li><p>{{user.profile.bio}}</p></li>
-            <li><p>{{user.profile.country.name}}</p></li>
-            <li><p>{{user.profile.date_of_birth}}</p></li>
+            <li>
+                <img src="{{user.profile.image.url}}" alt="">
+                {% if user.profile.image %}
+                {% endif %}
+            </li>
+            <li><p><b>Bio</b>{{user.profile.bio}}</p></li>
+            <li><p><b>Country</b>{{user.profile.country.name}}</p></li>
+            <li><p><b>Date of Birthday</b>{{user.profile.date_of_birth}}</p></li>
         </ul>
     </main>
 </body>

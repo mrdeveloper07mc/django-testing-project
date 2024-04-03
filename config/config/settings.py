@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-v-=n%#nm_i^o7fe&sqjmh+a1gh0!-3xta9*nmz)&33#w&#ka$6
 DEBUG = True
 NGROK_HOST = "4082-95-214-210-58.ngrok-free.app"
 
-ALLOWED_HOSTS = [NGROK_HOST]
+ALLOWED_HOSTS = [NGROK_HOST,"127.0.0.1"]
 
 CSRF_TRUSTED_ORIGINS = ["https://"+NGROK_HOST]
 # Application definition
@@ -40,9 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'users',
-    'django_countries'
-]
+    'django_countries',
 
+]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -66,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
             ],
         },
     },
@@ -102,6 +103,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
