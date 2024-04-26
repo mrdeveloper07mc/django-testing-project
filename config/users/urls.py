@@ -36,4 +36,6 @@ urlpatterns = [
     
     path("profile/edit/<pk>", views.ProfileUpdateView.as_view(), name='profile_update')
     
+    
+    
 ]
